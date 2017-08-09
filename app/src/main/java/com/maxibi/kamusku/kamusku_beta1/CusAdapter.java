@@ -33,14 +33,16 @@ public class CusAdapter extends RecyclerView.Adapter<CusAdapter.ViewHolder> {
             public void onClick(View view) {
                 if (!check) {
                     myViewHolder.bertukar.animate()
-                            .alpha(0.0f).setDuration(1000);
+                            .alpha(0.0f)
+                            .setDuration(1000);
 
                     myViewHolder.bertukar.setVisibility(View.GONE);
                     check = true;
                 } else {
                     myViewHolder.bertukar.setVisibility(View.VISIBLE);
                     myViewHolder.bertukar.animate()
-                            .alpha(1.0f).setDuration(1000);
+                            .alpha(1.0f)
+                            .setDuration(1000);
                     check = false;
 
                 }
@@ -51,7 +53,7 @@ public class CusAdapter extends RecyclerView.Adapter<CusAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         TextView word_MS = holder.word_MS;
         TextView word_EN = holder.word_EN;

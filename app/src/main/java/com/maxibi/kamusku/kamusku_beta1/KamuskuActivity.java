@@ -17,8 +17,8 @@ import java.util.Map;
 public class KamuskuActivity extends AppCompatActivity {
 
     public static RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private static RecyclerView recyclerView;
+    public RecyclerView.LayoutManager layoutManager;
+    private  RecyclerView recyclerView;
 
     public static ArrayList<WordObject> wData;
 
@@ -43,12 +43,13 @@ public class KamuskuActivity extends AppCompatActivity {
         db = new KamuskuDBHelper(this);
 
         searchView = (SearchView) findViewById(R.id.sv_kamusku);
+        searchView.setQueryHint("Search here");
         searchView.setQueryRefinementEnabled(true);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        wData = new ArrayList<WordObject>();
+        wData = new ArrayList<>();
         fetchData();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
@@ -62,7 +63,7 @@ public class KamuskuActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 newText = newText.toLowerCase();
 
-                final ArrayList<WordObject> filterList = new ArrayList<WordObject>();
+                final ArrayList<WordObject> filterList = new ArrayList<>();
                 for( int i = 0; i < msCombineList.size(); i++)
                 {
                     final String text = msCombineList.get(i).toLowerCase();
